@@ -1,22 +1,25 @@
 package com.register.web.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class IsolationCenter {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     private String name;
     private String address;
 
     public IsolationCenter() { }
 
-    public IsolationCenter(String name, int id, String address) {
+    public IsolationCenter(String name, Long id, String address) {
         this.name = name;
         this.id = id;
         this.address = address;
@@ -30,11 +33,11 @@ public class IsolationCenter {
         this.name = name;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
